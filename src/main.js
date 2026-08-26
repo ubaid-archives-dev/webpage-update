@@ -1,3 +1,4 @@
+import './style.css';
 const API_KEY = import.meta.env.VITE_NASA_API_KEY;
 const url=`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
 
@@ -14,7 +15,7 @@ fetch(url)
       </div>
         `;
     })
-    .cathc(err => {
+    .catch(err => {
         console.error("Error fetching data:", err);
-        documetn.querySelector("#app").innerHTML  = `<p>Failed to load NASA data. Check console for details.</p>`;
+        document.querySelector("#app").innerHTML  = `<p>Failed to load NASA data. Check console for details.</p>`;
     })
