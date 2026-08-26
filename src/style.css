@@ -14,7 +14,7 @@ h1 {
     color: #ffffff;
 }
 
-.data {
+.date {
     color: #a0a0b0;
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
@@ -32,4 +32,32 @@ img, video {
   font-size: 1.05rem;
   color: #d0d0d8;
   margin-top: 1.5rem;
+}
+
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  width: 25px;
+  height: 100vh;
+  background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+  z-index: -1;
+  clip-path: polygon(0 0, 100% 0, 70% 50%, 100% 100%, 0 100%);
+}
+
+body::before {
+  left: 0;
+}
+
+body::after {
+  right: 0;
+  transform: scaleX(-1);
+}
+
+@media (max-width: 600px) {
+  body::before,
+  body::after {
+    display: none;
+  }
 }
