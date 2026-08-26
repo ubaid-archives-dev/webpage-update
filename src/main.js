@@ -1,4 +1,18 @@
 import './style.css';
+
+// Live clock function
+function updateClock() {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString();
+    const clockElement = document.getElementById("clock");
+    if (clockElement) {
+        clockElement.textContent = timeString;
+    }
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+
 const API_KEY = import.meta.env.VITE_NASA_API_KEY;
 const url=`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
 
@@ -12,7 +26,6 @@ fetch(url)
             <p class="date">${data.date}</p>
             <img src="${data.url}" alt="${data.title}" style="max-width: 100%; border-radius: 8px;" />
         <p class="explanation">${data.explanation}</p>
-      </div>
         `;
     })
     .catch(err => {
