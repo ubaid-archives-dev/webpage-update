@@ -1,25 +1,29 @@
-# NASA Astronomy Picture of the Day (APOD) Dashboard
 
-A sleek, modern web application built for the **Stardance** challenge that fetches daily space imagery and explanations directly from NASA's official APOD API.
+# CUSTOM NEW TAB PAGE
 
-## Live Demo
-You can view the live project here: [NASA APOD Dashboard](https://ubaid-archives-dev.github.io/webpage-update/)
+hey, This is a custom new tab page which i built as a stardance mission. It uses HTML CSS and vite.I have tried to keep it lightweiight. I have used simple code and not relied on heavy UI  libraries  and templates
 
-## Features
-- **Live API Integration**: Automatically pulls the daily image or video along with its title, date, and description from NASA.
-- **Dynamic Media Handling**: Automatically checks whether today's entry is an image or a video and renders the appropriate HTML element.
-- **Modern Sci-Fi Styling**: Built using a dark space theme, custom Google Fonts (**Orbitron** and **Black Ops One**), and decorative side borders created with CSS `clip-path: polygon()`.
-- **Fully Responsive**: Automatically hides decorative side strips on mobile screens using CSS media queries.
 
-## Tech Stack
-- **HTML5 & Vanilla JavaScript (ES Modules)**
-- **Vite** (Build tool and development server)
-- **CSS3** (Custom styling, flexbox, and clip-path layouts)
-- **GitHub Pages** (Continuous deployment pipeline)
 
-## Getting Started Locally
-To run this project on your local machine:
 
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/ubaid-archives-dev/webpage-update.git](https://github.com/ubaid-archives-dev/webpage-update.git)
+## WHAT IS INSIDE
+
+MARKUP: (index.html) this is just the basic layout. It has custom Google fonts such as Orbitron and Black Ops One and includes container for main view and clock 
+
+Styling: (style.css) Hand-crafted CSS it defines custom layout designing , colour themes and background
+
+Build Tool: (vite.config.js) Configured with Vite. it helps in fast local development 
+
+
+
+
+## Run Locally
+
+clone the repository
+git clone https://github.com/ubaid-archives-dev/webpage-update.git
+
+Install dependencies:
+npm install
+
+Start the local development server:  
+npm run dev
