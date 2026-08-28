@@ -1,34 +1,42 @@
-import './style.css';
+import './style.css'
 
-// Live clock function
-function updateClock() {
-    const now = new Date();
-    const timeString = now.toLocaleTimeString();
-    const clockElement = document.getElementById("clock");
-    if (clockElement) {
-        clockElement.textContent = timeString;
+const app = document.querySelector('#app')
+const clockEl = document.querySelector('#clock')
+
+const tick = () => {
+  if (clockEl) {
+    clockEl.textContent = new Date().toLocaleTimeString()
+  }
+}
+setInterval(tick, 1000)
+tick() 
+
+
+async function getSpacePic() {
+  app.innerHTML = '<h1>loading space stuff...</h1>'
+  
+  try {
+    const apiKey = import.meta.env.VITE_NASA_API_KEY
+    const request = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
+    const data = await request.json()
+    
+
+    app.innerHTML = `
+      <h1>${data.title}</h1>
+      <p class="date">${data.date}</p>
+      <img src="${data.url}" alt="NASA APOD" />
+      <p class="explanation">${data.explanation}</p>
+    `
+    
+    const dateElement = app.querySelector('.date')
+    if (dateElement && clockEl) {
+      dateElement.insertAdjacentElement('afterend', clockEl)
     }
+
+  } catch (error) {
+    console.error("api broke:", error)
+    app.innerHTML = '<p>could not load image today :(</p>'
+  }
 }
 
-setInterval(updateClock, 1000);
-updateClock();
-
-const API_KEY = import.meta.env.VITE_NASA_API_KEY;
-const url=`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
-
-document.querySelector("#app").innerHTML = '<h1>loading NASA ASTRONOMY Picture..</h1>';
-
-fetch(url)
-    .then(response => response.json())
-    .then(data => {
-        document.querySelector("#app").innerHTML = `
-            <h1>${data.title}</h1>
-            <p class="date">${data.date}</p>
-            <img src="${data.url}" alt="${data.title}" style="max-width: 100%; border-radius: 8px;" />
-        <p class="explanation">${data.explanation}</p>
-        `;
-    })
-    .catch(err => {
-        console.error("Error fetching data:", err);
-        document.querySelector("#app").innerHTML  = `<p>Failed to load NASA data. Check console for details.</p>`;
-    })
+getSpacePic()
