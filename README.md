@@ -9,8 +9,7 @@ A minimal browser new tab page featuring a live clock and daily NASA API data.
 
 
 ## Screenshots
-
-![ Screenshot](./assets/ss.png.jpeg)
+![Screenshot](./src/assets/ss.png)
 
 
 ## Live Demo
